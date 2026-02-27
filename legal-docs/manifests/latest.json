@@ -1,3 +1,19 @@
 {
-  "latest": {}
+  "latest": {
+    "bricks-dev": {
+      "terms": {
+        "it": {
+          "id": "bricks-dev-terms-it-v001",
+          "line": "default",
+          "version": 1,
+          "effectiveDate": "2026-02-27",
+          "sha256": "32f0f838d02575d843095da958ec47c1784516dbfc3d2607557355b908b64fbd",
+          "url": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/bricks-dev/terms/it/2026-02-27/v001_documento-1.pdf",
+          "downloadUrl": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/bricks-dev/terms/it/2026-02-27/v001_documento-1.pdf",
+          "originalFileName": "documento-1.pdf",
+          "downloadFileName": "bricks-dev_terms_it_v001_documento-1.pdf"
+        }
+      }
+    }
+  }
 }
