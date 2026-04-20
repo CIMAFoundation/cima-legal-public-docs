@@ -1,20 +1,5 @@
 {
   "latest": {
-    "bricks": {
-      "terms": {
-        "it": {
-          "id": "bricks-terms-it-v002",
-          "line": "-",
-          "version": 2,
-          "effectiveDate": "2026-04-20",
-          "sha256": "32f0f838d02575d843095da958ec47c1784516dbfc3d2607557355b908b64fbd",
-          "url": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/bricks/terms/it/2026-04-20/v002_documento-1.pdf",
-          "downloadUrl": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/bricks/terms/it/2026-04-20/v002_documento-1.pdf",
-          "originalFileName": "documento-1.pdf",
-          "downloadFileName": "bricks_terms_it_v002_documento-1.pdf",
-          "deletedAt": "2026-04-20T13:20:24.606Z"
-        }
-      }
-    }
+
   }
 }
