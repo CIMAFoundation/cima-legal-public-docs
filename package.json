@@ -6,6 +6,6 @@
   "scripts": {
     "validate:legal-docs": "node scripts/validate-legal-docs.mjs",
     "build:manifest": "node scripts/build-manifest.mjs",
-    "publish:pages": "echo 'Hook this to GitHub Pages or deployment target'"
+    "sync:pages": "node scripts/sync-pages.mjs"
   }
 }
