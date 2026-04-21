@@ -14,6 +14,21 @@
           "downloadFileName": "world_privacy_it_v001_documento-2.pdf"
         }
       }
+    },
+    "dpc-italia": {
+      "cookie": {
+        "it": {
+          "id": "dpc-italia-cookie-it-v001",
+          "line": "-",
+          "version": 1,
+          "effectiveDate": "2026-04-21",
+          "sha256": "8a861126b652c0cc9c095052641289590942fc66ea90815f9513a9cf9caef9ad",
+          "url": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/dpc-italia/cookie/it/2026-04-21/v001_documento-2.pdf",
+          "downloadUrl": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/dpc-italia/cookie/it/2026-04-21/v001_documento-2.pdf",
+          "originalFileName": "documento-2.pdf",
+          "downloadFileName": "dpc-italia_cookie_it_v001_documento-2.pdf"
+        }
+      }
     }
   }
 }
