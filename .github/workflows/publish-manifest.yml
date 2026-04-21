@@ -34,6 +34,5 @@ jobs:
       - name: Sync to GitHub Pages repo
         run: npm run sync:pages
         env:
-#          GH_TOKEN: ${{ secrets.PAGES_SYNC_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.CIMA_MACHINE_USER_API_TOKEN }}
           PAGES_REPO: ${{ vars.PAGES_REPO }}
