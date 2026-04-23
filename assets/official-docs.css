@@ -20,14 +20,41 @@ body {
   padding: 24px 16px 40px;
 }
 
+.page-header {
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
 .page-header h1 {
   margin: 0 0 6px;
   font-size: 1.8rem;
 }
 
 .page-header p {
-  margin: 0 0 18px;
+  margin: 0;
   color: #6b7280;
+}
+
+.quick-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.quick-links a {
+  font-size: 0.95rem;
 }
 
 .card {
@@ -90,3 +117,17 @@ a:hover {
   color: #6b7280;
 }
 
+.list-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-links li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.list-links li:last-child {
+  border-bottom: 0;
+}
