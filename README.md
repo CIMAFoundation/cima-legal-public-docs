@@ -8,8 +8,17 @@ Repository pubblico dei documenti legali canonicali consumati dalle altre applic
 legal-docs/
   manifests/latest.json
   manifests/history/
-  documents/
+  files/
+index.html
+assets/
+  official-docs.js
+  official-docs.css
 ```
+
+## Pagina pubblica GitHub Pages
+
+La root del sito (`/`) mostra la tabella dei documenti ufficiali esposti, leggendo direttamente
+`legal-docs/manifests/latest.json` (solo documenti non eliminati).
 
 ## Workflow
 - Le modifiche arrivano dal publisher BE tramite branch + pull request.
@@ -19,3 +28,4 @@ legal-docs/
 ## Comandi
 - `npm run validate:legal-docs`
 - `npm run build:manifest`
+- Test pagina pubblica in locale: `python3 -m http.server 4173`
