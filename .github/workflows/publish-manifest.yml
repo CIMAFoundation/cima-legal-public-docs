@@ -31,8 +31,3 @@ jobs:
           git add legal-docs/manifests/latest.json
           git commit -m "chore: normalize latest manifest"
           git push
-      - name: Sync to GitHub Pages repo
-        run: npm run sync:pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.CATALOG_SYNC_TOKEN }}
-          PAGES_REPO: ${{ vars.PAGES_REPO }}
