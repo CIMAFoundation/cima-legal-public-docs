@@ -1,20 +1,3 @@
 {
-  "latest": {
-    "world": {
-      "privacy": {
-        "it": {
-          "id": "world-privacy-it-v001",
-          "line": "-",
-          "version": 1,
-          "effectiveDate": "2026-04-21",
-          "sha256": "8a861126b652c0cc9c095052641289590942fc66ea90815f9513a9cf9caef9ad",
-          "url": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/world/privacy/it/2026-04-21/v001_documento-2.pdf",
-          "downloadUrl": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/world/privacy/it/2026-04-21/v001_documento-2.pdf",
-          "originalFileName": "documento-2.pdf",
-          "downloadFileName": "world_privacy_it_v001_documento-2.pdf",
-          "deletedAt": "2026-04-23T15:20:57.544Z"
-        }
-      }
-    }
-  }
+  "latest": {}
 }
