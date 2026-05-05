@@ -42,20 +42,6 @@
           "downloadFileName": "dpc-italia_cookie_it_v001_documento-2.pdf",
           "deletedAt": "2026-04-23T15:21:01.704Z"
         }
-      },
-      "privacy": {
-        "fr": {
-          "id": "dpc-italia-privacy-fr-v001",
-          "line": "-",
-          "version": 1,
-          "effectiveDate": "2026-04-27",
-          "sha256": "32f0f838d02575d843095da958ec47c1784516dbfc3d2607557355b908b64fbd",
-          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/fr/2026-04-27-v001-documento-1.pdf",
-          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/fr/2026-04-27-v001-documento-1.pdf",
-          "originalFileName": "documento-1.pdf",
-          "downloadFileName": "dpc-italia_privacy_fr_v001.pdf",
-          "deletedAt": "2026-05-05T16:51:17.688Z"
-        }
       }
     },
     "bricks": {
