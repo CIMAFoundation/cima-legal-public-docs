@@ -13,18 +13,6 @@
           "originalFileName": "documento-2.pdf",
           "downloadFileName": "world_privacy_it_v001_documento-2.pdf",
           "deletedAt": "2026-04-23T15:20:57.544Z"
-        },
-        "en": {
-          "id": "world-privacy-en-v001",
-          "line": "-",
-          "version": 1,
-          "effectiveDate": "2026-04-23",
-          "sha256": "f63357a7171d67409c43007cffd49166b2a65f325870f2a0ac6e8e658f0cf7d0",
-          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/world/privacy/en/2026-04-23-v001-documento-3.pdf",
-          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/world/privacy/en/2026-04-23-v001-documento-3.pdf",
-          "originalFileName": "documento-3.pdf",
-          "downloadFileName": "world_privacy_en_v001.pdf",
-          "deletedAt": "2026-05-05T16:48:49.115Z"
         }
       }
     },
