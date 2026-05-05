@@ -4,9 +4,13 @@ on:
   push:
     branches: ['main']
     paths:
-      - 'legal-docs/**'
+      - 'legal-docs/manifests/**'
       - 'scripts/**'
       - 'package.json'
+
+concurrency:
+  group: publish-manifest-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   publish:
