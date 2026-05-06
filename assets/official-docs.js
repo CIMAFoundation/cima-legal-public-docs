@@ -84,8 +84,7 @@
       var pdfTd = document.createElement('td');
       var link = document.createElement('a');
       link.href = row.publicUrl;
-      link.target = '_blank';
-      link.rel = 'noopener';
+      link.download = row.downloadFileName;
       link.textContent = row.downloadFileName;
       pdfTd.appendChild(link);
       tr.appendChild(pdfTd);
