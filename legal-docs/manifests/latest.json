@@ -13,6 +13,19 @@
           "originalFileName": "myDW_Informativa Privacy_14 11 2024.pdf",
           "downloadFileName": "dpc-italia_privacy_it_v001.pdf"
         }
+      },
+      "cookie": {
+        "it": {
+          "id": "dpc-italia-cookie-it-v001",
+          "line": "-",
+          "version": 1,
+          "effectiveDate": "2024-12-11",
+          "sha256": "46a0d617e0a3fc47b0f58a635f6981f95648eb9507d80bc33a1999461a5357f7",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/cookie/it/2024-12-11-v001-myDW-Ita-Cookie-Policy-11-12-2024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/cookie/it/2024-12-11-v001-myDW-Ita-Cookie-Policy-11-12-2024.pdf",
+          "originalFileName": "myDW_Ita_Cookie Policy_11 12 2024.pdf",
+          "downloadFileName": "dpc-italia_cookie_it_v001.pdf"
+        }
       }
     }
   }
