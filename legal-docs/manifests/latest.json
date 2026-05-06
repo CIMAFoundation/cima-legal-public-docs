@@ -1,34 +1,30 @@
 {
   "latest": {
-    "world": {
+    "dpc-italia": {
       "privacy": {
         "it": {
-          "id": "world-privacy-it-v001",
+          "id": "dpc-italia-privacy-it-v001",
           "line": "-",
           "version": 1,
-          "effectiveDate": "2026-04-21",
-          "sha256": "8a861126b652c0cc9c095052641289590942fc66ea90815f9513a9cf9caef9ad",
-          "url": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/world/privacy/it/2026-04-21/v001_documento-2.pdf",
-          "downloadUrl": "https://raw.githubusercontent.com/CIMAFoundation/cima-legal-public-docs/main/legal-docs/files/world/privacy/it/2026-04-21/v001_documento-2.pdf",
-          "originalFileName": "documento-2.pdf",
-          "downloadFileName": "world_privacy_it_v001_documento-2.pdf",
-          "deletedAt": "2026-04-23T15:20:57.544Z"
+          "effectiveDate": "2024-11-14",
+          "sha256": "eb6f5618aec35ade00d723156328144def7da5ed5d14a2dc7511e6b1797d505e",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/it/2024-11-14-v001-myDW-Informativa-Privacy-14-11-2024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/it/2024-11-14-v001-myDW-Informativa-Privacy-14-11-2024.pdf",
+          "originalFileName": "myDW_Informativa Privacy_14 11 2024.pdf",
+          "downloadFileName": "dpc-italia_privacy_it_v001.pdf"
         }
-      }
-    },
-    "bricks": {
-      "terms": {
+      },
+      "cookie": {
         "it": {
-          "id": "bricks-terms-it-v002",
+          "id": "dpc-italia-cookie-it-v001",
           "line": "-",
-          "version": 2,
-          "effectiveDate": "2026-04-23",
-          "sha256": "f63357a7171d67409c43007cffd49166b2a65f325870f2a0ac6e8e658f0cf7d0",
-          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/bricks/terms/it/2026-04-23/v002_documento-3.pdf",
-          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/bricks/terms/it/2026-04-23/v002_documento-3.pdf",
-          "originalFileName": "documento-3.pdf",
-          "downloadFileName": "bricks_terms_it_v002_documento-3.pdf",
-          "deletedAt": "2026-04-23T15:20:49.645Z"
+          "version": 1,
+          "effectiveDate": "2024-12-11",
+          "sha256": "46a0d617e0a3fc47b0f58a635f6981f95648eb9507d80bc33a1999461a5357f7",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/cookie/it/2024-12-11-v001-myDW-Ita-Cookie-Policy-11-12-2024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/cookie/it/2024-12-11-v001-myDW-Ita-Cookie-Policy-11-12-2024.pdf",
+          "originalFileName": "myDW_Ita_Cookie Policy_11 12 2024.pdf",
+          "downloadFileName": "dpc-italia_cookie_it_v001.pdf"
         }
       }
     }
