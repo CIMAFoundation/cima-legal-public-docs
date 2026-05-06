@@ -1,3 +1,19 @@
 {
-  "latest": {}
+  "latest": {
+    "dpc-italia": {
+      "privacy": {
+        "it": {
+          "id": "dpc-italia-privacy-it-v001",
+          "line": "-",
+          "version": 1,
+          "effectiveDate": "2024-11-14",
+          "sha256": "eb6f5618aec35ade00d723156328144def7da5ed5d14a2dc7511e6b1797d505e",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/it/2024-11-14-v001-myDW-Informativa-Privacy-14-11-2024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/privacy/it/2024-11-14-v001-myDW-Informativa-Privacy-14-11-2024.pdf",
+          "originalFileName": "myDW_Informativa Privacy_14 11 2024.pdf",
+          "downloadFileName": "dpc-italia_privacy_it_v001.pdf"
+        }
+      }
+    }
+  }
 }
