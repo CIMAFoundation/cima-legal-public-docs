@@ -26,6 +26,19 @@
           "originalFileName": "myDW_Ita_Cookie Policy_11 12 2024.pdf",
           "downloadFileName": "dpc-italia_cookie_it_v001.pdf"
         }
+      },
+      "terms": {
+        "it": {
+          "id": "dpc-italia-terms-it-v001",
+          "line": "-",
+          "version": 1,
+          "effectiveDate": "2024-12-10",
+          "sha256": "84f7d29e13b2353cbe13fac4c7da3cf843bec44dcff62042437b482627d6a771",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/terms/it/2024-12-10-v001-myDW-Ita-Termini-Condizioni-10-12-2024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/dpc-italia/terms/it/2024-12-10-v001-myDW-Ita-Termini-Condizioni-10-12-2024.pdf",
+          "originalFileName": "myDW_Ita_Termini Condizioni_10 12 2024.pdf",
+          "downloadFileName": "dpc-italia_terms_it_v001.pdf"
+        }
       }
     }
   }
