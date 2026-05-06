@@ -6,6 +6,13 @@
     return 'v' + String(version).padStart(3, '0');
   }
 
+  function formatEffectiveDate(value) {
+    var text = String(value || '');
+    var match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return text || '-';
+    return match[3] + '/' + match[2] + '/' + match[1];
+  }
+
   function setStatus(text, isError) {
     statusEl.textContent = text;
     statusEl.classList.toggle('error', Boolean(isError));
@@ -72,7 +79,7 @@
         row.docType,
         row.lang,
         formatVersion(row.version),
-        row.effectiveDate
+        formatEffectiveDate(row.effectiveDate)
       ];
 
       cols.forEach(function (value) {
