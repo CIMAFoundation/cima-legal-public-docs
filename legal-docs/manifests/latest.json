@@ -40,6 +40,21 @@
           "downloadFileName": "dpc-italia_terms_it_v001.pdf"
         }
       }
+    },
+    "world": {
+      "privacy": {
+        "en": {
+          "id": "world-privacy-en-v001",
+          "line": "-",
+          "version": 1,
+          "effectiveDate": "2024-11-15",
+          "sha256": "0375036361572cad43c602f4861ad4a8e6aab915d239f3da6a1e94e8a231766a",
+          "url": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/world/privacy/en/2024-11-15-v001-Privacy-Policy-15112024.pdf",
+          "downloadUrl": "https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/files/world/privacy/en/2024-11-15-v001-Privacy-Policy-15112024.pdf",
+          "originalFileName": "Privacy-Policy_15112024.pdf",
+          "downloadFileName": "world_privacy_en_v001.pdf"
+        }
+      }
     }
   }
 }
