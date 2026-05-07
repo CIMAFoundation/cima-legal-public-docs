@@ -1,22 +1,20 @@
 # cima-legal-public-docs
 
-Repository pubblico canonico dei documenti legali usati dalle applicazioni client.
+Repository pubblico canonico dei documenti legali consumati dai client.
 
-## Scopo del repository
+## Contenuto
 
-Questo repository contiene:
+- file pubblici in `legal-docs/files/`
+- manifest pubblico in `legal-docs/manifests/latest.json`
+- pagina GitHub Pages read-only (`index.html` + `assets/official-docs.*`)
+- script di validazione/normalizzazione
 
-- i file legali pubblici (`PDF` e relativi asset);
-- il manifest pubblico `latest.json` usato dai frontend;
-- una pagina GitHub Pages di sola consultazione;
-- script e workflow di validazione/normalizzazione.
-
-In produzione, i client leggono principalmente da GitHub Pages:
+URL principali:
 
 - `https://cimafoundation.github.io/cima-legal-public-docs/`
 - `https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/manifests/latest.json`
 
-## Struttura repository
+## Struttura
 
 ```text
 cima-legal-public-docs/
@@ -33,109 +31,35 @@ cima-legal-public-docs/
   scripts/
     validate-legal-docs.mjs
     build-manifest.mjs
-    sync-pages.mjs
-  .github/workflows/
-    validate-publication.yml
-    publish-manifest.yml
 ```
 
-## Modello dati (manifest)
+## Manifest `latest.json`
 
-Il file `legal-docs/manifests/latest.json` espone, per combinazione `platform/docType/lang`,
-il documento corrente valido.
+Per ogni combinazione `platform/docType/lang` contiene la entry corrente.
 
-Campi principali di una entry:
+Campi usati dai client:
 
-- `id`
-- `line` (facoltativo)
-- `version`
-- `effectiveDate`
+- `id`, `line`, `version`, `effectiveDate`
 - `sha256`
-- `url`
-- `downloadUrl`
-- `originalFileName`
-- `downloadFileName`
-- `deletedAt` (presente solo in soft-delete)
+- `url`, `downloadUrl`
+- `originalFileName`, `downloadFileName`
+- `deletedAt` (presente solo per soft delete)
 
-### Nota su naming/path
+`effectiveDate` resta in formato ISO (`yyyy-MM-dd`); la UI può formattarlo in `dd/MM/yyyy`.
 
-Nel repository possono coesistere:
+## Flusso operativo
 
-- struttura legacy (con sottocartelle data);
-- struttura più recente con data nel nome file.
-
-La normalizzazione del manifest garantisce comunque coerenza lato client.
-
-## Pagina pubblica GitHub Pages
-
-La root del sito (`/`) mostra la lista documenti ufficiali esposti, leggendo direttamente
-`legal-docs/manifests/latest.json` e filtrando i documenti con `deletedAt`.
-
-Questa pagina è pensata per consultazione pubblica (read-only), senza login o funzioni di upload.
-
-## Workflow CI/CD
-
-### 1) Validazione in Pull Request
-
-Workflow: `Validate Publication` (`.github/workflows/validate-publication.yml`)
-
-Trigger:
-
-- PR con modifiche a `legal-docs/**`, `scripts/**`, `package.json`
-
-Azione:
-
-- esegue `npm ci`
-- esegue `npm run validate:legal-docs`
-
-Obiettivo:
-
-- bloccare PR con struttura o contenuti non validi.
-
-### 2) Pubblicazione/normalizzazione su main
-
-Workflow: `Publish Manifest` (`.github/workflows/publish-manifest.yml`)
-
-Trigger:
-
-- push su `main` con modifiche a `legal-docs/**`, `scripts/**`, `package.json`
-
-Azione:
-
-- esegue `npm ci`
-- esegue `npm run build:manifest`
-- se `latest.json` cambia, committa e pusha il manifest normalizzato
-
-Obiettivo:
-
-- mantenere `latest.json` coerente e aggiornato per i client.
-
-## Flusso operativo tipico
-
-1. Un publisher carica/aggiorna documenti tramite applicazione di backoffice.
-2. I file vengono scritti in `legal-docs/files/...` e il manifest viene aggiornato.
-3. Il push su `main` attiva `Publish Manifest`.
-4. Il workflow normalizza il manifest e pubblica il commit se necessario.
-5. GitHub Pages espone i dati aggiornati (con latenza fisiologica di propagazione cache/CDN).
+1. Il backoffice pubblica file + metadati su questo repo.
+2. Viene aggiornato `legal-docs/manifests/latest.json`.
+3. I workflow validano/normalizzano il manifest.
+4. GitHub Pages espone contenuti e manifest aggiornati.
 
 ## Comandi locali
-
-Installazione dipendenze:
 
 ```bash
 cd cima-legal-public-docs
 npm ci
-```
-
-Validazione contenuti:
-
-```bash
 npm run validate:legal-docs
-```
-
-Normalizzazione/rigenerazione manifest:
-
-```bash
 npm run build:manifest
 ```
 
@@ -147,33 +71,24 @@ python3 -m http.server 4173
 
 Aprire: `http://127.0.0.1:4173/`
 
-## Manutenzione consigliata
-
-- Verificare periodicamente che `latest.json` punti a URL pubblici corretti.
-- Mantenere il naming file consistente tra piattaforme/lingue.
-- Evitare modifiche manuali non tracciate su manifest in produzione.
-- Usare sempre PR con validazione CI prima del merge.
-
 ## Troubleshooting
 
-### Il file c'è nel repo ma non si vede subito online
+### File presente nel repo ma non visibile subito
 
-Comportamento atteso: può esserci latenza tra commit, workflow completato e disponibilità via Pages.
+Può esserci latenza fisiologica tra commit, completion workflow e propagazione cache/CDN.
 
-Controlli consigliati:
+Verifiche utili:
 
-1. stato workflow: `https://github.com/CIMAFoundation/cima-legal-public-docs/actions`
-2. presenza entry in `legal-docs/manifests/latest.json`
-3. URL file pubblica raggiungibile su dominio `cimafoundation.github.io`
+1. `https://github.com/CIMAFoundation/cima-legal-public-docs/actions`
+2. contenuto aggiornato di `legal-docs/manifests/latest.json`
+3. URL file su `cimafoundation.github.io`
 
-### Manifest non aggiornato dopo push
+### Nome scaricato diverso dal nome file URL
 
-- Controllare log `Publish Manifest`.
-- Verificare permessi `contents: write` del workflow.
-- Verificare che i path modificati rientrino nel trigger del workflow.
+Comportamento voluto: l'URL può avere un nome tecnico, mentre il download lato UI usa `downloadFileName`.
 
-## Note di sicurezza
+## Sicurezza
 
-- Non committare segreti o token nel repository.
-- Eventuali token per automazioni devono stare in GitHub Secrets/Variables.
-- I contenuti pubblicati qui sono accessibili pubblicamente via GitHub Pages.
+- Non committare token/segreti.
+- Usare GitHub Secrets/Variables per automazioni.
+- I contenuti di questo repo sono pubblici via GitHub Pages.
