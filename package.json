@@ -4,8 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate:legal-docs": "node scripts/validate-legal-docs.mjs",
-    "build:manifest": "node scripts/build-manifest.mjs",
+    "build:latest-index": "node scripts/build-latest-index.mjs",
     "sync:pages": "node scripts/sync-pages.mjs"
   }
 }

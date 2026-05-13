@@ -2,10 +2,6 @@
   var statusEl = document.getElementById('status');
   var rowsEl = document.getElementById('rows');
 
-  function formatVersion(version) {
-    return 'v' + String(version).padStart(3, '0');
-  }
-
   function formatEffectiveDate(value) {
     var text = String(value || '');
     var match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -18,53 +14,15 @@
     statusEl.classList.toggle('error', Boolean(isError));
   }
 
-  function buildRows(latest) {
-    var rows = [];
-
-    Object.keys(latest || {}).forEach(function (platform) {
-      var byType = latest[platform] || {};
-      Object.keys(byType).forEach(function (docType) {
-        var byLang = byType[docType] || {};
-        Object.keys(byLang).forEach(function (lang) {
-          var entry = byLang[lang] || {};
-          if (entry.deletedAt) return;
-
-          rows.push({
-            line: entry.line || '-',
-            platform: platform,
-            docType: docType,
-            lang: lang,
-            version: Number(entry.version || 0),
-            effectiveDate: entry.effectiveDate || '-',
-            publicUrl: entry.url || entry.downloadUrl || '#',
-            downloadFileName: entry.downloadFileName || entry.originalFileName || entry.id || 'Apri PDF'
-          });
-        });
-      });
-    });
-
-    rows.sort(function (a, b) {
-      var lineCmp = a.line.localeCompare(b.line);
-      if (lineCmp !== 0) return lineCmp;
-      var platformCmp = a.platform.localeCompare(b.platform);
-      if (platformCmp !== 0) return platformCmp;
-      var typeCmp = a.docType.localeCompare(b.docType);
-      if (typeCmp !== 0) return typeCmp;
-      return a.lang.localeCompare(b.lang);
-    });
-
-    return rows;
-  }
-
   function renderRows(rows) {
     rowsEl.innerHTML = '';
 
     if (!rows.length) {
       var tr = document.createElement('tr');
       var td = document.createElement('td');
-      td.colSpan = 7;
+      td.colSpan = 5;
       td.className = 'empty';
-      td.textContent = 'Nessun documento ufficiale disponibile.';
+      td.textContent = 'Nessun documento disponibile.';
       tr.appendChild(td);
       rowsEl.appendChild(tr);
       return;
@@ -72,15 +30,7 @@
 
     rows.forEach(function (row) {
       var tr = document.createElement('tr');
-
-      var cols = [
-        row.line,
-        row.platform,
-        row.docType,
-        row.lang,
-        formatVersion(row.version),
-        formatEffectiveDate(row.effectiveDate)
-      ];
+      var cols = [row.line || '-', row.docType || '-', row.lang || '-', formatEffectiveDate(row.effectiveDate)];
 
       cols.forEach(function (value) {
         var td = document.createElement('td');
@@ -90,9 +40,9 @@
 
       var pdfTd = document.createElement('td');
       var link = document.createElement('a');
-      link.href = row.publicUrl;
-      link.download = row.downloadFileName;
-      link.textContent = row.downloadFileName;
+      link.href = row.publicUrl || '#';
+      link.download = row.downloadFileName || null;
+      link.textContent = row.downloadFileName || 'Apri PDF';
       pdfTd.appendChild(link);
       tr.appendChild(pdfTd);
 
@@ -100,21 +50,20 @@
     });
   }
 
-  fetch('legal-docs/manifests/latest.json?t=' + Date.now())
+  fetch('assets/latest-index.json?t=' + Date.now())
     .then(function (res) {
       if (!res.ok) {
-        throw new Error('Manifest non raggiungibile (' + res.status + ')');
+        throw new Error('Indice non raggiungibile (' + res.status + ')');
       }
       return res.json();
     })
     .then(function (data) {
-      var rows = buildRows(data.latest || {});
+      var rows = Array.isArray(data.rows) ? data.rows : [];
       renderRows(rows);
-      setStatus('Manifest caricato. Documenti attivi: ' + rows.length + '.');
+      setStatus('Indice caricato. Documenti attivi: ' + rows.length + '.');
     })
     .catch(function (error) {
       renderRows([]);
-      setStatus('Errore caricamento manifest: ' + (error && error.message ? error.message : 'sconosciuto'), true);
+      setStatus('Errore caricamento indice: ' + (error && error.message ? error.message : 'sconosciuto'), true);
     });
 })();
-
