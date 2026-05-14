@@ -1,41 +1,4 @@
 {
-  "generatedAt": "2026-05-13T18:59:38.412Z",
-  "rows": [
-    {
-      "id": "dpc-italia-it-cookie-policy",
-      "line": "dpc-italia",
-      "lang": "it",
-      "docType": "cookie-policy",
-      "effectiveDate": "2024-12-11",
-      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/dpc-italia/it/cookie-policy.pdf",
-      "downloadFileName": "cookie-policy.pdf"
-    },
-    {
-      "id": "dpc-italia-it-privacy-policy",
-      "line": "dpc-italia",
-      "lang": "it",
-      "docType": "privacy-policy",
-      "effectiveDate": "2024-11-14",
-      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/dpc-italia/it/privacy-policy.pdf",
-      "downloadFileName": "privacy-policy.pdf"
-    },
-    {
-      "id": "dpc-italia-it-terms-of-use",
-      "line": "dpc-italia",
-      "lang": "it",
-      "docType": "terms-of-use",
-      "effectiveDate": "2024-12-10",
-      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/dpc-italia/it/terms-of-use.pdf",
-      "downloadFileName": "terms-of-use.pdf"
-    },
-    {
-      "id": "world-en-privacy-policy",
-      "line": "world",
-      "lang": "en",
-      "docType": "privacy-policy",
-      "effectiveDate": "2024-11-15",
-      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/world/en/privacy-policy.pdf",
-      "downloadFileName": "privacy-policy.pdf"
-    }
-  ]
+  "generatedAt": "2026-05-14T08:23:57.641Z",
+  "rows": []
 }
