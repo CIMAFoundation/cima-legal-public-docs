@@ -1,4 +1,14 @@
 {
-  "generatedAt": "2026-05-14T08:23:57.641Z",
-  "rows": []
+  "generatedAt": "2026-05-14T12:48:29.994Z",
+  "rows": [
+    {
+      "id": "mydewetra-italy-it-terms-of-use",
+      "line": "mydewetra-italy",
+      "lang": "it",
+      "docType": "terms-of-use",
+      "effectiveDate": "2026-05-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/terms-of-use.pdf",
+      "downloadFileName": "terms-of-use.pdf"
+    }
+  ]
 }
