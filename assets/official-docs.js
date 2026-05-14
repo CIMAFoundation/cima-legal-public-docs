@@ -113,7 +113,13 @@
       return res.json();
     })
     .then(function (data) {
-      allRows = Array.isArray(data.rows) ? sortRows(data.rows) : [];
+      allRows = Array.isArray(data.rows)
+        ? sortRows(
+            data.rows.filter(function (row) {
+              return !row.deletedAt;
+            })
+          )
+        : [];
       var lines = uniqueSorted(
         allRows.map(function (row) {
           return String(row.line || '-');
