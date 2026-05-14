@@ -1,26 +1,182 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Latest Legal Docs</title>
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; }
-      a { color: #0a58ca; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .muted { color: #555; }
+      :root {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        background: #f6f7f9;
+        color: #1f2937;
+      }
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.8rem;
+      }
+      p {
+        margin: 0 0 12px;
+        color: #4b5563;
+      }
+      .card {
+        margin-top: 16px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+      }
+      .status {
+        padding: 12px 14px;
+        border-bottom: 1px solid #f0f2f5;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+      .tree {
+        padding: 10px 14px 14px;
+      }
+      details {
+        margin: 6px 0;
+      }
+      details > summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+      ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+      li {
+        margin: 6px 0;
+      }
+      a {
+        color: #1d4ed8;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .meta {
+        color: #6b7280;
+        font-size: 0.85rem;
+        margin-left: 6px;
+      }
     </style>
   </head>
   <body>
-    <h1>Latest Legal Docs</h1>
-    <p class="muted">Direct directory listing disabled on GitHub Pages.</p>
-    <p>
-      Open public index:
-      <a href="../assets/latest-index.json">assets/latest-index.json</a>
-    </p>
-    <p>
-      Open landing page:
-      <a href="../">cima-legal-public-docs/</a>
-    </p>
+    <main class="container">
+      <h1>Latest Legal Docs</h1>
+      <p>Tree aperto file pubblici sotto <code>latest/</code>.</p>
+      <p>
+        <a href="../">← Torna pagina pubblica</a>
+        ·
+        <a href="../assets/latest-index.json" target="_blank" rel="noopener">Apri indice JSON</a>
+      </p>
+
+      <section class="card">
+        <div id="status" class="status">Caricamento tree...</div>
+        <div id="tree" class="tree"></div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var statusEl = document.getElementById('status');
+        var treeEl = document.getElementById('tree');
+
+        function setStatus(text) {
+          statusEl.textContent = text;
+        }
+
+        function buildTree(rows) {
+          var root = {};
+          rows.forEach(function (row) {
+            var line = String(row.line || '-');
+            var lang = String(row.lang || '-');
+            if (!root[line]) root[line] = {};
+            if (!root[line][lang]) root[line][lang] = [];
+            root[line][lang].push(row);
+          });
+          return root;
+        }
+
+        function render(rows) {
+          treeEl.innerHTML = '';
+          if (!rows.length) {
+            treeEl.textContent = 'Nessun file in latest.';
+            return;
+          }
+
+          var tree = buildTree(rows);
+          Object.keys(tree)
+            .sort()
+            .forEach(function (line) {
+              var lineDetails = document.createElement('details');
+              lineDetails.open = true;
+              var lineSummary = document.createElement('summary');
+              lineSummary.textContent = line;
+              lineDetails.appendChild(lineSummary);
+
+              Object.keys(tree[line])
+                .sort()
+                .forEach(function (lang) {
+                  var langDetails = document.createElement('details');
+                  langDetails.open = true;
+                  var langSummary = document.createElement('summary');
+                  langSummary.textContent = lang;
+                  langDetails.appendChild(langSummary);
+
+                  var list = document.createElement('ul');
+                  tree[line][lang]
+                    .slice()
+                    .sort(function (a, b) {
+                      return String(a.docType || '').localeCompare(String(b.docType || ''));
+                    })
+                    .forEach(function (row) {
+                      var li = document.createElement('li');
+                      var link = document.createElement('a');
+                      link.href = row.publicUrl || '#';
+                      link.textContent = String(row.downloadFileName || row.docType || 'file.pdf');
+                      link.target = '_blank';
+                      link.rel = 'noopener';
+                      li.appendChild(link);
+
+                      var meta = document.createElement('span');
+                      meta.className = 'meta';
+                      meta.textContent = '(' + String(row.effectiveDate || '-') + ')';
+                      li.appendChild(meta);
+                      list.appendChild(li);
+                    });
+                  langDetails.appendChild(list);
+                  lineDetails.appendChild(langDetails);
+                });
+              treeEl.appendChild(lineDetails);
+            });
+        }
+
+        fetch('../assets/latest-index.json?t=' + Date.now())
+          .then(function (res) {
+            if (!res.ok) throw new Error('Indice non raggiungibile (' + res.status + ')');
+            return res.json();
+          })
+          .then(function (data) {
+            var rows = Array.isArray(data.rows) ? data.rows : [];
+            render(rows);
+            setStatus('Tree caricato. File: ' + rows.length + '.');
+          })
+          .catch(function (err) {
+            setStatus('Errore caricamento: ' + (err && err.message ? err.message : 'sconosciuto'));
+            treeEl.textContent = 'Impossibile caricare tree.';
+          });
+      })();
+    </script>
   </body>
 </html>

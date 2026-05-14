@@ -1,94 +1,75 @@
 # cima-legal-public-docs
 
-Repository pubblico canonico dei documenti legali consumati dai client.
+Repo pubblico documenti legali esposti su GitHub Pages.
 
-## Contenuto
+## URL
 
-- file pubblici in `legal-docs/files/`
-- manifest pubblico in `legal-docs/manifests/latest.json`
-- pagina GitHub Pages read-only (`index.html` + `assets/official-docs.*`)
-- script di validazione/normalizzazione
+- Pagina pubblica: `https://cimafoundation.github.io/cima-legal-public-docs/`
+- Indice JSON: `https://cimafoundation.github.io/cima-legal-public-docs/assets/latest-index.json`
+- Cartella latest: `https://cimafoundation.github.io/cima-legal-public-docs/latest/`
+- Cartella legacy: `https://cimafoundation.github.io/cima-legal-public-docs/legacy/`
 
-URL principali:
-
-- `https://cimafoundation.github.io/cima-legal-public-docs/`
-- `https://cimafoundation.github.io/cima-legal-public-docs/legal-docs/manifests/latest.json`
-
-## Struttura
+## Struttura attuale
 
 ```text
 cima-legal-public-docs/
-  legal-docs/
-    files/
-      <platform>/<docType>/<lang>/...
-    manifests/
-      latest.json
-      history/
   assets/
+    latest-index.json
     official-docs.js
     official-docs.css
+  latest/
+    [line]/[lang]/[doc-type].pdf
+    index.html
+  legacy/
+    [line]/[lang]/[doc-type]_[date].pdf
+    index.html
   index.html
   scripts/
-    validate-legal-docs.mjs
-    build-manifest.mjs
+    build-latest-index.mjs
+    sync-pages.mjs
 ```
 
-## Manifest `latest.json`
+## Fonte dati pagina pubblica
 
-Per ogni combinazione `platform/docType/lang` contiene la entry corrente.
+Pagina legge `assets/latest-index.json`.
 
-Campi usati dai client:
+Ogni upload FE aggiorna:
+- file in `latest/`
+- file in `legacy/`
+- indice `assets/latest-index.json`
 
-- `id`, `line`, `version`, `effectiveDate`
-- `sha256`
-- `url`, `downloadUrl`
-- `originalFileName`, `downloadFileName`
-- `deletedAt` (presente solo per soft delete)
-
-`effectiveDate` resta in formato ISO (`yyyy-MM-dd`); la UI può formattarlo in `dd/MM/yyyy`.
-
-## Flusso operativo
-
-1. Il backoffice pubblica file + metadati su questo repo.
-2. Viene aggiornato `legal-docs/manifests/latest.json`.
-3. I workflow validano/normalizzano il manifest.
-4. GitHub Pages espone contenuti e manifest aggiornati.
-
-## Comandi locali
+## Dev locale pagina pubblica
 
 ```bash
-cd cima-legal-public-docs
-npm ci
-npm run validate:legal-docs
-npm run build:manifest
-```
-
-Test pagina pubblica in locale:
-
-```bash
+cd /Users/deda/WebstormProjects/cima-webapp-terms/cima-legal-public-docs
 python3 -m http.server 4173
 ```
 
-Aprire: `http://127.0.0.1:4173/`
+Apri:
+- `http://127.0.0.1:4173/`
+
+## Rigenerare indice da `latest/` (backfill)
+
+Utile se file già presenti ma indice non allineato.
+
+```bash
+cd /Users/deda/WebstormProjects/cima-webapp-terms/cima-legal-public-docs
+npm run build:latest-index
+```
+
+Poi commit/push:
+
+```bash
+git add assets/latest-index.json
+git commit -m "chore: rebuild latest index"
+git push
+```
 
 ## Troubleshooting
 
-### File presente nel repo ma non visibile subito
+### File in repo ma non visibile in pagina
 
-Può esserci latenza fisiologica tra commit, completion workflow e propagazione cache/CDN.
-
-Verifiche utili:
-
-1. `https://github.com/CIMAFoundation/cima-legal-public-docs/actions`
-2. contenuto aggiornato di `legal-docs/manifests/latest.json`
-3. URL file su `cimafoundation.github.io`
-
-### Nome scaricato diverso dal nome file URL
-
-Comportamento voluto: l'URL può avere un nome tecnico, mentre il download lato UI usa `downloadFileName`.
-
-## Sicurezza
-
-- Non committare token/segreti.
-- Usare GitHub Secrets/Variables per automazioni.
-- I contenuti di questo repo sono pubblici via GitHub Pages.
+1. Verifica `assets/latest-index.json` contiene entry.
+2. Verifica URL `publicUrl` apribile.
+3. Attendi propagazione Pages/CDN (alcuni minuti).
+4. Hard refresh browser.

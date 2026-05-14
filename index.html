@@ -20,12 +20,25 @@
         <nav class="quick-links" aria-label="Link utili">
           <a href="assets/latest-index.json" target="_blank" rel="noopener">Apri indice JSON</a>
           <a href="latest/" target="_blank" rel="noopener">Apri cartella latest</a>
-          <a href="legacy/" target="_blank" rel="noopener">Apri cartella legacy</a>
         </nav>
       </header>
 
       <section class="card">
         <div id="status" class="status">Caricamento indice...</div>
+        <div class="filters" aria-label="Filtri">
+          <label class="filter-item">
+            <span>Linea</span>
+            <select id="filter-line">
+              <option value="">tutte</option>
+            </select>
+          </label>
+          <label class="filter-item">
+            <span>Lingua</span>
+            <select id="filter-lang">
+              <option value="">tutte</option>
+            </select>
+          </label>
+        </div>
         <div class="table-wrap">
           <table aria-describedby="status">
             <thead>

@@ -1,6 +1,9 @@
 (function () {
   var statusEl = document.getElementById('status');
   var rowsEl = document.getElementById('rows');
+  var lineFilterEl = document.getElementById('filter-line');
+  var langFilterEl = document.getElementById('filter-lang');
+  var allRows = [];
 
   function formatEffectiveDate(value) {
     var text = String(value || '');
@@ -12,6 +15,22 @@
   function setStatus(text, isError) {
     statusEl.textContent = text;
     statusEl.classList.toggle('error', Boolean(isError));
+  }
+
+  function formatTimestamp(value) {
+    var date = new Date(String(value || ''));
+    if (Number.isNaN(date.getTime())) return '-';
+    return date.toLocaleString('it-IT');
+  }
+
+  function sortRows(rows) {
+    return rows.slice().sort(function (a, b) {
+      var lineCmp = String(a.line || '').localeCompare(String(b.line || ''));
+      if (lineCmp !== 0) return lineCmp;
+      var langCmp = String(a.lang || '').localeCompare(String(b.lang || ''));
+      if (langCmp !== 0) return langCmp;
+      return String(a.docType || '').localeCompare(String(b.docType || ''));
+    });
   }
 
   function renderRows(rows) {
@@ -50,6 +69,42 @@
     });
   }
 
+  function uniqueSorted(values) {
+    return Array.from(new Set(values)).sort(function (a, b) {
+      return String(a).localeCompare(String(b));
+    });
+  }
+
+  function setSelectOptions(selectEl, values) {
+    var current = selectEl.value;
+    selectEl.innerHTML = '';
+    var allOpt = document.createElement('option');
+    allOpt.value = '';
+    allOpt.textContent = 'tutte';
+    selectEl.appendChild(allOpt);
+    values.forEach(function (value) {
+      var option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      selectEl.appendChild(option);
+    });
+    if (current && values.indexOf(current) !== -1) {
+      selectEl.value = current;
+    }
+  }
+
+  function applyFilters() {
+    var selectedLine = String(lineFilterEl.value || '');
+    var selectedLang = String(langFilterEl.value || '');
+    var filtered = allRows.filter(function (row) {
+      if (selectedLine && String(row.line || '-') !== selectedLine) return false;
+      if (selectedLang && String(row.lang || '-') !== selectedLang) return false;
+      return true;
+    });
+    renderRows(filtered);
+    setStatus('Filtro attivo. Risultati: ' + filtered.length + ' / ' + allRows.length + '.');
+  }
+
   fetch('assets/latest-index.json?t=' + Date.now())
     .then(function (res) {
       if (!res.ok) {
@@ -58,12 +113,32 @@
       return res.json();
     })
     .then(function (data) {
-      var rows = Array.isArray(data.rows) ? data.rows : [];
-      renderRows(rows);
-      setStatus('Indice caricato. Documenti attivi: ' + rows.length + '.');
+      allRows = Array.isArray(data.rows) ? sortRows(data.rows) : [];
+      var lines = uniqueSorted(
+        allRows.map(function (row) {
+          return String(row.line || '-');
+        })
+      );
+      var langs = uniqueSorted(
+        allRows.map(function (row) {
+          return String(row.lang || '-');
+        })
+      );
+      setSelectOptions(lineFilterEl, lines);
+      setSelectOptions(langFilterEl, langs);
+      renderRows(allRows);
+      setStatus(
+        'Indice caricato. Documenti attivi: ' +
+          allRows.length +
+          '. Aggiornato: ' +
+          formatTimestamp(data && data.generatedAt)
+      );
     })
     .catch(function (error) {
       renderRows([]);
       setStatus('Errore caricamento indice: ' + (error && error.message ? error.message : 'sconosciuto'), true);
     });
+
+  lineFilterEl.addEventListener('change', applyFilters);
+  langFilterEl.addEventListener('change', applyFilters);
 })();
