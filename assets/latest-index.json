@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-05-18T09:05:36+00:00",
+    "generatedAt": "2026-05-19T14:12:35+00:00",
     "rows": [
         {
             "id": "mydewetra-italy-it-cookie-policy",
@@ -27,6 +27,15 @@
             "effectiveDate": "2026-05-14",
             "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/terms-of-use.pdf",
             "downloadFileName": "terms-of-use.pdf"
+        },
+        {
+            "id": "mydewetra-world-en-privacy-policy",
+            "line": "mydewetra-world",
+            "lang": "en",
+            "docType": "privacy-policy",
+            "effectiveDate": "2024-11-14",
+            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/privacy-policy.pdf",
+            "downloadFileName": "privacy-policy.pdf"
         }
     ]
 }
