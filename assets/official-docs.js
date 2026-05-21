@@ -1,9 +1,23 @@
 (function () {
+  var siteLinks = (window && window.CimaSiteLinks) || {};
   var statusEl = document.getElementById('status');
   var rowsEl = document.getElementById('rows');
   var lineFilterEl = document.getElementById('filter-line');
   var langFilterEl = document.getElementById('filter-lang');
   var allRows = [];
+
+  function populateConfigLinks() {
+    var links = document.querySelectorAll('[data-link-key]');
+    links.forEach(function (linkEl) {
+      var key = String(linkEl.getAttribute('data-link-key') || '');
+      var href = String(siteLinks[key] || '').trim();
+      if (href) {
+        linkEl.setAttribute('href', href);
+      } else {
+        linkEl.remove();
+      }
+    });
+  }
 
   function formatEffectiveDate(value) {
     var text = String(value || '');
@@ -147,4 +161,5 @@
 
   lineFilterEl.addEventListener('change', applyFilters);
   langFilterEl.addEventListener('change', applyFilters);
+  populateConfigLinks();
 })();

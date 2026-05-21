@@ -1,6 +1,20 @@
 (function () {
+  var siteLinks = (window && window.CimaSiteLinks) || {};
   var statusEl = document.getElementById('status');
   var treeEl = document.getElementById('tree');
+
+  function populateConfigLinks() {
+    var links = document.querySelectorAll('[data-link-key]');
+    links.forEach(function (linkEl) {
+      var key = String(linkEl.getAttribute('data-link-key') || '');
+      var href = String(siteLinks[key] || '').trim();
+      if (href) {
+        linkEl.setAttribute('href', href);
+      } else {
+        linkEl.remove();
+      }
+    });
+  }
 
   function setStatus(text) {
     statusEl.textContent = text;
@@ -90,4 +104,5 @@
       setStatus('Errore caricamento: ' + (err && err.message ? err.message : 'sconosciuto'));
       treeEl.textContent = 'Impossibile caricare tree.';
     });
+  populateConfigLinks();
 })();
