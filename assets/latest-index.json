@@ -1,6 +1,15 @@
 {
-    "generatedAt": "2026-05-19T14:12:54+00:00",
+    "generatedAt": "2026-07-21T10:53:01+00:00",
     "rows": [
+        {
+            "id": "mydewetra-italy-en-cookie-policy",
+            "line": "mydewetra-italy",
+            "lang": "en",
+            "docType": "cookie-policy",
+            "effectiveDate": "2026-07-20",
+            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/cookie-policy.pdf",
+            "downloadFileName": "cookie-policy.pdf"
+        },
         {
             "id": "mydewetra-italy-it-cookie-policy",
             "line": "mydewetra-italy",
