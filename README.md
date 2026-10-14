@@ -41,7 +41,7 @@ Ogni upload FE aggiorna:
 ## Dev locale pagina pubblica
 
 ```bash
-cd /Users/deda/WebstormProjects/cima-webapp-terms/cima-legal-public-docs
+cd /cima-webapp-terms/cima-legal-public-docs
 python3 -m http.server 4173
 ```
 
@@ -53,7 +53,7 @@ Apri:
 Utile se file già presenti ma indice non allineato.
 
 ```bash
-cd /Users/deda/WebstormProjects/cima-webapp-terms/cima-legal-public-docs
+cd /cima-webapp-terms/cima-legal-public-docs
 npm run build:latest-index
 ```
 
