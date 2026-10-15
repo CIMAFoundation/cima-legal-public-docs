@@ -41,9 +41,16 @@ function toRow(absPath) {
   };
 }
 
+// Preserve publication state and dates when rebuilding from retained repository PDFs.
+const previous = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, 'utf8')).rows : [];
+const previousById = new Map(previous.map((row) => [row.id, row]));
 const files = walkPdfFiles(latestRoot);
 const rows = files
   .map(toRow)
+  .map((row) => {
+    const saved = previousById.get(row.id);
+    return saved ? { ...row, ...saved } : row;
+  })
   .sort((a, b) => a.line.localeCompare(b.line) || a.lang.localeCompare(b.lang) || a.docType.localeCompare(b.docType));
 
 fs.writeFileSync(outPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), rows }, null, 2)}\n`);

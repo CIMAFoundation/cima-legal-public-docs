@@ -73,3 +73,17 @@ git push
 2. Verifica URL `publicUrl` apribile.
 3. Attendi propagazione Pages/CDN (alcuni minuti).
 4. Hard refresh browser.
+
+## Ritiro dalla pubblicazione
+
+`Publish Pages` gestisce `withdraw`, `restore` e `refresh`. Gli ID selezionati
+arrivano come array JSON nell'input `ids`. La CI aggiorna `deletedAt` nell'indice
+versionato e pubblica un artefatto separato: l'indice pubblico contiene solo righe
+attive e i relativi PDF `latest/`. I PDF ritirati restano nel repository; gli URL
+Pages ritirati rispondono 404 dopo il deploy e la scadenza delle cache.
+Le versioni `legacy/` restano pubbliche.
+
+Configurare Settings → Pages → GitHub Actions e disabilitare eventuali deploy
+alternativi dell'intero repository. Eseguire `refresh` per applicare i ritiri già
+registrati. `npm test` verifica ritiro e ripristino; `npm run build:pages` costruisce
+`_site/` senza pubblicarlo. Il workflow sostituisce il vecchio `Publish Manifest`.

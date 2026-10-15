@@ -2,10 +2,10 @@ name: Validate Publication
 
 on:
   pull_request:
-    paths:
-      - 'legal-docs/**'
-      - 'scripts/**'
-      - 'package.json'
+    paths: ['latest/**', 'legacy/**', 'assets/**', '*.html', 'scripts/**', '.github/workflows/**']
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -14,6 +14,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run validate:legal-docs
+          node-version: '22'
+      - run: node --test scripts/publication.test.mjs
+      - run: node scripts/build-pages.mjs

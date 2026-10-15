@@ -1,0 +1,81 @@
+name: Publish Pages
+run-name: Publication ${{ inputs.action || 'refresh' }}
+
+on:
+  push:
+    branches: [main]
+    paths: ['latest/**', 'legacy/**', 'assets/**', '*.html', 'scripts/**', '.github/workflows/publish-pages.yml']
+  workflow_dispatch:
+    inputs:
+      action:
+        type: choice
+        options: [refresh, withdraw, restore]
+        default: refresh
+      ids:
+        description: JSON array of document IDs
+        default: '[]'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test scripts/publication.test.mjs
+      - name: Record withdrawal or restoration
+        if: github.event_name == 'workflow_dispatch' && inputs.action != 'refresh'
+        env:
+          PUBLICATION_ACTION: ${{ inputs.action }}
+          PUBLICATION_IDS: ${{ inputs.ids }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            node scripts/manage-publication.mjs
+            git add assets/latest-index.json
+            git diff --cached --quiet && exit 0
+            git commit -m "docs: ${PUBLICATION_ACTION} selected documents"
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          exit 1
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/configure-pages@v5
+      - run: node scripts/build-pages.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
