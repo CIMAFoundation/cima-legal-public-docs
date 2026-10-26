@@ -1,117 +1,119 @@
 {
-    "generatedAt": "2026-10-26T15:16:16+00:00",
-    "rows": [
-        {
-            "id": "mydewetra-italy-en-cookie-policy",
-            "line": "mydewetra-italy",
-            "lang": "en",
-            "docType": "cookie-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/cookie-policy.pdf",
-            "downloadFileName": "cookie-policy.pdf"
-        },
-        {
-            "id": "mydewetra-italy-en-privacy-policy",
-            "line": "mydewetra-italy",
-            "lang": "en",
-            "docType": "privacy-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/privacy-policy.pdf",
-            "downloadFileName": "privacy-policy.pdf"
-        },
-        {
-            "id": "mydewetra-italy-en-terms-of-use",
-            "line": "mydewetra-italy",
-            "lang": "en",
-            "docType": "terms-of-use",
-            "effectiveDate": "2026-07-31",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/terms-of-use.pdf",
-            "downloadFileName": "terms-of-use.pdf"
-        },
-        {
-            "id": "mydewetra-italy-it-cookie-policy",
-            "line": "mydewetra-italy",
-            "lang": "it",
-            "docType": "cookie-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/cookie-policy.pdf",
-            "downloadFileName": "cookie-policy.pdf"
-        },
-        {
-            "id": "mydewetra-italy-it-privacy-policy",
-            "line": "mydewetra-italy",
-            "lang": "it",
-            "docType": "privacy-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/privacy-policy.pdf",
-            "downloadFileName": "privacy-policy.pdf"
-        },
-        {
-            "id": "mydewetra-italy-it-terms-of-use",
-            "line": "mydewetra-italy",
-            "lang": "it",
-            "docType": "terms-of-use",
-            "effectiveDate": "2026-07-31",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/terms-of-use.pdf",
-            "downloadFileName": "terms-of-use.pdf"
-        },
-        {
-            "id": "mydewetra-world-en-cookie-policy",
-            "line": "mydewetra-world",
-            "lang": "en",
-            "docType": "cookie-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/cookie-policy.pdf",
-            "downloadFileName": "cookie-policy.pdf",
-            "deletedAt": "2026-10-15T12:13:20+00:00"
-        },
-        {
-            "id": "mydewetra-world-en-privacy-policy",
-            "line": "mydewetra-world",
-            "lang": "en",
-            "docType": "privacy-policy",
-            "effectiveDate": "2024-11-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/privacy-policy.pdf",
-            "downloadFileName": "privacy-policy.pdf",
-            "deletedAt": "2026-10-15T12:13:20+00:00"
-        },
-        {
-            "id": "mydewetra-world-en-terms-of-use",
-            "line": "mydewetra-world",
-            "lang": "en",
-            "docType": "terms-of-use",
-            "effectiveDate": "2025-06-26",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/terms-of-use.pdf",
-            "downloadFileName": "terms-of-use.pdf"
-        },
-        {
-            "id": "mydewetra-world-it-cookie-policy",
-            "line": "mydewetra-world",
-            "lang": "it",
-            "docType": "cookie-policy",
-            "effectiveDate": "2026-10-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/cookie-policy.pdf",
-            "downloadFileName": "cookie-policy.pdf",
-            "deletedAt": "2026-10-15T12:13:20+00:00"
-        },
-        {
-            "id": "mydewetra-world-it-privacy-policy",
-            "line": "mydewetra-world",
-            "lang": "it",
-            "docType": "privacy-policy",
-            "effectiveDate": "2024-11-14",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/privacy-policy.pdf",
-            "downloadFileName": "privacy-policy.pdf",
-            "deletedAt": "2026-10-15T12:13:20+00:00"
-        },
-        {
-            "id": "mydewetra-world-it-terms-of-use",
-            "line": "mydewetra-world",
-            "lang": "it",
-            "docType": "terms-of-use",
-            "effectiveDate": "2025-06-26",
-            "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/terms-of-use.pdf",
-            "downloadFileName": "terms-of-use.pdf"
-        }
-    ]
+  "generatedAt": "2026-10-26T16:46:07.999Z",
+  "rows": [
+    {
+      "id": "mydewetra-italy-en-cookie-policy",
+      "line": "mydewetra-italy",
+      "lang": "en",
+      "docType": "cookie-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/cookie-policy.pdf",
+      "downloadFileName": "cookie-policy.pdf",
+      "deletedAt": "2026-10-26T16:46:07.999Z"
+    },
+    {
+      "id": "mydewetra-italy-en-privacy-policy",
+      "line": "mydewetra-italy",
+      "lang": "en",
+      "docType": "privacy-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/privacy-policy.pdf",
+      "downloadFileName": "privacy-policy.pdf"
+    },
+    {
+      "id": "mydewetra-italy-en-terms-of-use",
+      "line": "mydewetra-italy",
+      "lang": "en",
+      "docType": "terms-of-use",
+      "effectiveDate": "2026-07-31",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/en/terms-of-use.pdf",
+      "downloadFileName": "terms-of-use.pdf"
+    },
+    {
+      "id": "mydewetra-italy-it-cookie-policy",
+      "line": "mydewetra-italy",
+      "lang": "it",
+      "docType": "cookie-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/cookie-policy.pdf",
+      "downloadFileName": "cookie-policy.pdf",
+      "deletedAt": "2026-10-26T16:46:07.999Z"
+    },
+    {
+      "id": "mydewetra-italy-it-privacy-policy",
+      "line": "mydewetra-italy",
+      "lang": "it",
+      "docType": "privacy-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/privacy-policy.pdf",
+      "downloadFileName": "privacy-policy.pdf"
+    },
+    {
+      "id": "mydewetra-italy-it-terms-of-use",
+      "line": "mydewetra-italy",
+      "lang": "it",
+      "docType": "terms-of-use",
+      "effectiveDate": "2026-07-31",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-italy/it/terms-of-use.pdf",
+      "downloadFileName": "terms-of-use.pdf"
+    },
+    {
+      "id": "mydewetra-world-en-cookie-policy",
+      "line": "mydewetra-world",
+      "lang": "en",
+      "docType": "cookie-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/cookie-policy.pdf",
+      "downloadFileName": "cookie-policy.pdf",
+      "deletedAt": "2026-10-15T12:13:20+00:00"
+    },
+    {
+      "id": "mydewetra-world-en-privacy-policy",
+      "line": "mydewetra-world",
+      "lang": "en",
+      "docType": "privacy-policy",
+      "effectiveDate": "2024-11-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/privacy-policy.pdf",
+      "downloadFileName": "privacy-policy.pdf",
+      "deletedAt": "2026-10-15T12:13:20+00:00"
+    },
+    {
+      "id": "mydewetra-world-en-terms-of-use",
+      "line": "mydewetra-world",
+      "lang": "en",
+      "docType": "terms-of-use",
+      "effectiveDate": "2025-06-26",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/en/terms-of-use.pdf",
+      "downloadFileName": "terms-of-use.pdf"
+    },
+    {
+      "id": "mydewetra-world-it-cookie-policy",
+      "line": "mydewetra-world",
+      "lang": "it",
+      "docType": "cookie-policy",
+      "effectiveDate": "2026-10-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/cookie-policy.pdf",
+      "downloadFileName": "cookie-policy.pdf",
+      "deletedAt": "2026-10-15T12:13:20+00:00"
+    },
+    {
+      "id": "mydewetra-world-it-privacy-policy",
+      "line": "mydewetra-world",
+      "lang": "it",
+      "docType": "privacy-policy",
+      "effectiveDate": "2024-11-14",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/privacy-policy.pdf",
+      "downloadFileName": "privacy-policy.pdf",
+      "deletedAt": "2026-10-15T12:13:20+00:00"
+    },
+    {
+      "id": "mydewetra-world-it-terms-of-use",
+      "line": "mydewetra-world",
+      "lang": "it",
+      "docType": "terms-of-use",
+      "effectiveDate": "2025-06-26",
+      "publicUrl": "https://cimafoundation.github.io/cima-legal-public-docs/latest/mydewetra-world/it/terms-of-use.pdf",
+      "downloadFileName": "terms-of-use.pdf"
+    }
+  ]
 }
