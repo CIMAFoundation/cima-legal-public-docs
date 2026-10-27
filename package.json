@@ -7,6 +7,6 @@
     "build:latest-index": "node scripts/build-latest-index.mjs",
     "sync:pages": "node scripts/sync-pages.mjs",
     "build:pages": "node scripts/build-pages.mjs",
-    "test": "node --test scripts/publication.test.mjs"
+    "test": "node --test scripts/*.test.mjs"
   }
 }
